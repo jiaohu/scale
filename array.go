@@ -65,7 +65,7 @@ func (c *CompactArray) GetType() TypeString {
 func (c *CompactArray) getNextCompact(i int) (Compact, error) {
 	switch changeStringToType(c.NextList[0]) {
 	case String:
-		return &CompactString{Type: StringName}, nil
+		return &CompactString{}, nil
 	case Uint8:
 		return &FixU8{}, nil
 	case Int8:
