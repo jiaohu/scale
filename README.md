@@ -1,0 +1,2 @@
+# scale
+SCALE for go
