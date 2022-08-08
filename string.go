@@ -7,8 +7,7 @@ import (
 )
 
 type CompactString struct {
-	Val  string
-	Type TypeString
+	Val string
 }
 
 func (c *CompactString) GetVal() interface{} {
@@ -70,7 +69,6 @@ func (c *CompactString) GetType() TypeString {
 
 func (c *CompactString) CloneNew() Compact {
 	return &CompactString{
-		Val:  c.Val,
-		Type: StringName,
+		Val: c.Val,
 	}
 }

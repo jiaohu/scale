@@ -9,7 +9,7 @@ import (
 func TestCompactStruct_Encode(t *testing.T) {
 	cc := CompactStruct{
 		[]Compact{
-			&CompactString{Val: "hello", Type: StringName},
+			&CompactString{Val: "hello"},
 			&CompactU16{16},
 		},
 	}
@@ -49,7 +49,7 @@ func TestEncodeStruct2(t *testing.T) {
 				},
 				&CompactVec{
 					Val: []Compact{
-						&CompactString{Val: "world", Type: StringName},
+						&CompactString{Val: "world"},
 					},
 					NextList: []TypeString{StringName},
 				},
@@ -68,21 +68,20 @@ func TestEncodeStruct2(t *testing.T) {
 func TestDecodeStruct2(t *testing.T) {
 	a := CompactStruct{Val: []Compact{
 		&FixU32{Val: uint32(1)},
-		&CompactString{Val: "test", Type: StringName},
+		&CompactString{Val: "test"},
 		&CompactVec{
 			Val: []Compact{
 				&CompactVec{
 					Val: []Compact{
 						&CompactString{
-							Val:  "hello",
-							Type: StringName,
+							Val: "hello",
 						},
 					},
 					NextList: []TypeString{StringName},
 				},
 				&CompactVec{
 					Val: []Compact{
-						&CompactString{Val: "world", Type: StringName},
+						&CompactString{Val: "world"},
 					},
 					NextList: []TypeString{StringName},
 				},
