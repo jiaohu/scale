@@ -6,13 +6,13 @@ import (
 )
 
 type CompactVec struct {
-	Val      []Compact
-	NextList []PrimitiveType
+	Val     []Compact
+	EleType PrimitiveType
 }
 
 func (c *CompactVec) Encode() ([]byte, error) {
-	if len(c.NextList) == 0 {
-		return nil, errors.New("must point next type list for vec")
+	if c.EleType == 0 {
+		return nil, errors.New("must point element type for vec")
 	}
 	l := getStringLenCompactType(len(c.Val))
 	if l == nil {
@@ -25,7 +25,7 @@ func (c *CompactVec) Encode() ([]byte, error) {
 	}
 	buf.Write(lengthEncode)
 	for _, v := range c.Val {
-		if v.GetType() != c.NextList[0] {
+		if v.GetType() != c.EleType {
 			return nil, errors.New("invalid vec")
 		}
 		res, err := v.Encode()
@@ -38,8 +38,8 @@ func (c *CompactVec) Encode() ([]byte, error) {
 }
 
 func (c *CompactVec) Decode(value []byte) (int, error) {
-	if len(c.NextList) == 0 {
-		return 0, errors.New("must point next type list for vec")
+	if c.EleType == 0 {
+		return 0, errors.New("must point element type for vec")
 	}
 	ss := &CompactU128{}
 	offset, err := ss.Decode(value)
@@ -82,7 +82,7 @@ func (c *CompactVec) GetType() PrimitiveType {
 }
 
 func (c *CompactVec) getNextCompact() (Compact, error) {
-	switch c.NextList[0] {
+	switch c.EleType {
 	case String:
 		return &CompactString{}, nil
 	case Uint8:
@@ -130,12 +130,10 @@ func (c *CompactVec) getNextCompact() (Compact, error) {
 
 func (c *CompactVec) CloneNew() Compact {
 	temp := &CompactVec{
-		Val:      nil,
-		NextList: nil,
+		Val:     nil,
+		EleType: 0,
 	}
-	for _, v := range c.NextList {
-		temp.NextList = append(temp.NextList, v)
-	}
+	temp.EleType = c.EleType
 	for _, v := range c.Val {
 		temp.Val = append(temp.Val, v.CloneNew())
 	}

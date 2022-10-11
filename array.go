@@ -6,21 +6,21 @@ import (
 )
 
 type CompactArray struct {
-	Val      []Compact
-	Len      int
-	NextList []PrimitiveType
+	Val     []Compact
+	Len     int
+	EleType PrimitiveType
 }
 
 func (c *CompactArray) Encode() ([]byte, error) {
 	if len(c.Val) != c.Len {
 		return nil, errors.New("wrong array length")
 	}
-	if len(c.NextList) == 0 {
-		return nil, errors.New("must point next type list for array")
+	if c.EleType == 0 {
+		return nil, errors.New("must point element type for array")
 	}
 	var buf bytes.Buffer
 	for _, v := range c.Val {
-		if v.GetType() != c.NextList[0] {
+		if v.GetType() != c.EleType {
 			return nil, errors.New("invalid array")
 		}
 		res, err := v.Encode()
@@ -63,7 +63,7 @@ func (c *CompactArray) GetType() PrimitiveType {
 }
 
 func (c *CompactArray) getNextCompact(i int) (Compact, error) {
-	switch c.NextList[0] {
+	switch c.EleType {
 	case String:
 		return &CompactString{}, nil
 	case Uint8:
@@ -113,9 +113,7 @@ func (c *CompactArray) CloneNew() Compact {
 	temp := &CompactArray{
 		Len: c.Len,
 	}
-	for _, v := range c.NextList {
-		temp.NextList = append(temp.NextList, v)
-	}
+	temp.EleType = c.EleType
 	for _, v := range c.Val {
 		temp.Val = append(temp.Val, v.CloneNew())
 	}

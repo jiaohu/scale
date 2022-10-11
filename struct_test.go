@@ -45,16 +45,16 @@ func TestEncodeStruct2(t *testing.T) {
 							Val: "hello",
 						},
 					},
-					NextList: []PrimitiveType{String},
+					EleType: String,
 				},
 				&CompactVec{
 					Val: []Compact{
 						&CompactString{Val: "world"},
 					},
-					NextList: []PrimitiveType{String},
+					EleType: String,
 				},
 			},
-			NextList: []PrimitiveType{Vec, String},
+			EleType: Vec,
 		},
 	}}
 	res, err := a.Encode()
@@ -77,16 +77,16 @@ func TestDecodeStruct2(t *testing.T) {
 							Val: "hello",
 						},
 					},
-					NextList: []PrimitiveType{String},
+					EleType: String,
 				},
 				&CompactVec{
 					Val: []Compact{
 						&CompactString{Val: "world"},
 					},
-					NextList: []PrimitiveType{String},
+					EleType: String,
 				},
 			},
-			NextList: []PrimitiveType{Vec, String},
+			EleType: Vec,
 		},
 	}}
 	_, err := a.Decode(Hex2Bytes("01000000107465737408041468656c6c6f0414776f726c64"))

@@ -10,7 +10,7 @@ func TestCompactVec_Encode(t *testing.T) {
 		Val: uint16(1),
 	}, &FixU16{
 		Val: uint16(64),
-	}}, NextList: []PrimitiveType{Uint16}}
+	}}, EleType: Uint16}
 	res, err := v.Encode()
 	if err != nil {
 		t.Error(err)
@@ -19,7 +19,7 @@ func TestCompactVec_Encode(t *testing.T) {
 }
 
 func TestCompactVec_Decode(t *testing.T) {
-	s := &CompactVec{NextList: []PrimitiveType{Uint16}}
+	s := &CompactVec{EleType: Uint16}
 	_, err := s.Decode([]byte{8, 1, 0, 64, 0})
 	if err != nil {
 		t.Error(err)

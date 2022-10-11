@@ -75,18 +75,18 @@ s.Decode(Hex2Bytes("0x207365745f686173680c6b657914776f726c64"))
 ```
 
 + ##### Vec
-in this type, we include ```NextList``` to define which type of value in the vector, we will also check the type while encode or decode. 
+in this type, we include ```EleType``` to define which type of value in the vector, we will also check the type while encode or decode. 
 ```go
 // encode
 v := &CompactVec{Val: []Compact{&FixU16{
 Val: uint16(1),
 }, &FixU16{
 Val: uint16(64),
-}}, NextList: []PrimitiveType{Uint16}}
+}}, EleType: Uint16}
 res, err := v.Encode()
 
 // decode
-s := &CompactVec{NextList: []PrimitiveType{Uint16}}
+s := &CompactVec{EleType: Uint16}
 _, err := s.Decode([]byte{8, 1, 0, 64, 0})
 ```
 
@@ -99,11 +99,11 @@ v := &CompactArray{Val: []Compact{&FixU16{
 Val: uint16(1),
 }, &FixU16{
 Val: uint16(64),
-}}, NextList: []PrimitiveType{Uint16}, Len: 2}
+}}, EleType: Uint16, Len: 2}
 res, err := v.Encode()
 
 // decode
-s := &CompactArray{NextList: []PrimitiveType{Uint16}, Len: 2}
+s := &CompactArray{EleType: Uint16, Len: 2}
 _, err := s.Decode([]byte{1, 0, 64, 0})
 ```
 
