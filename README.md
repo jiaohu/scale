@@ -22,7 +22,7 @@ type Compact interface {
 
 # Usage
 
-Here are the examples for the types that we supported.
+Here are the examples for the types that we supported. Or you can find more usages in the unit test file.
 
 + ##### Fix Number
 use ```uint8``` as the example, we wrap the real val with a struct, the implement the interface. 
