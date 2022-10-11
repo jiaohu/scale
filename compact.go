@@ -9,7 +9,7 @@ import (
 
 // Compact base interface for encoding and decoding. We redefine
 // the way to encode and decode all the types that supported by us.
-// For more details see [SCALE Codec](https://docs.substrate.io/v3/advanced/scale-codec/)
+// For more details see [SCALE Codec](https://docs.substrate.io/reference/scale-codec/)
 type Compact interface {
 	Encode() ([]byte, error)
 	Decode(val []byte) (int, error)
