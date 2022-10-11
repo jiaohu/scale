@@ -48,8 +48,8 @@ func (c *CompactEnum) GetVal() interface{} {
 	return c.Val.GetVal()
 }
 
-func (c *CompactEnum) GetType() TypeString {
-	return EnumName
+func (c *CompactEnum) GetType() PrimitiveType {
+	return Enum
 }
 
 func (c *CompactEnum) CloneNew() Compact {

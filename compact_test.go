@@ -13,7 +13,7 @@ func TestCompactU8(t *testing.T) {
 		res, err := a.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{100}, res)
-		assert.Equal(t, CompactUInt8Name, a.GetType())
+		assert.Equal(t, CompactUInt8, a.GetType())
 	})
 	t.Run("encode2", func(t *testing.T) {
 		a := CompactU8{Val: 64}
@@ -43,7 +43,7 @@ func TestCompactU16(t *testing.T) {
 		res, err := a.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{100}, res)
-		assert.Equal(t, CompactUint16Name, a.GetType())
+		assert.Equal(t, CompactUint16, a.GetType())
 	})
 	t.Run("encode2", func(t *testing.T) {
 		a := CompactU16{Val: uint16(69)}
@@ -86,7 +86,7 @@ func TestCompactU32(t *testing.T) {
 		res, err := a.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{186, 201, 2, 0}, res)
-		assert.Equal(t, CompactUint32Name, a.GetType())
+		assert.Equal(t, CompactUint32, a.GetType())
 	})
 	t.Run("encode2", func(t *testing.T) {
 		a := CompactU32{Val: 25}
@@ -210,7 +210,7 @@ func TestCompactU128(t *testing.T) {
 		res, err := s.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{32}, res)
-		assert.Equal(t, CompactBigIntName, s.GetType())
+		assert.Equal(t, CompactBigInt, s.GetType())
 	})
 	t.Run("encode2", func(t *testing.T) {
 		s := CompactU128{Val: new(big.Int).SetUint64(100000000000000)}

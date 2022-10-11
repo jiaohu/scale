@@ -48,39 +48,3 @@ const (
 	Tuple
 	Enum
 )
-
-type TypeString string
-
-const (
-	NoneName          TypeString = TypeString("None")
-	StringName        TypeString = "String"
-	StructName        TypeString = "struct"
-	Uint8Name         TypeString = "u8"
-	Int8Name          TypeString = "i8"
-	CompactUInt8Name  TypeString = "Compact < u8 >"
-	Uint16Name        TypeString = "u16"
-	Int16Name         TypeString = "i16"
-	CompactUint16Name TypeString = "Compact < u16 >"
-	Uint32Name        TypeString = "u32"
-	Int32Name         TypeString = "i32"
-	CompactUint32Name TypeString = "Compact < u32 >"
-	Uint64Name        TypeString = "u64"
-	Int64Name         TypeString = "i64"
-	CompactUint64Name TypeString = "Compact < u64 >"
-	BigIntName        TypeString = "i128"
-	BigUIntName       TypeString = "u128"
-	CompactBigIntName TypeString = "Compact < u128 >"
-	BoolName          TypeString = "bool"
-	VecName           TypeString = "Vec"
-	PrimitiveName     TypeString = "primitive"
-	ArrayName         TypeString = "Array"
-	TupleName         TypeString = "tuple"
-	EnumName          TypeString = "enum"
-)
-
-func (t TypeString) String() string {
-	return string(t)
-}
-
-// CustomParamsSection custom section named `params` in wasm defined by us.
-const CustomParamsSection = "params"

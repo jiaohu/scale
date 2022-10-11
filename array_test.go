@@ -10,17 +10,17 @@ func TestCompactArray_Encode(t *testing.T) {
 		Val: uint16(1),
 	}, &FixU16{
 		Val: uint16(64),
-	}}, NextList: []TypeString{Uint16Name}, Len: 2}
+	}}, NextList: []PrimitiveType{Uint16}, Len: 2}
 	res, err := v.Encode()
 	if err != nil {
 		t.Error(err)
 	}
 	assert.Equal(t, []byte{1, 0, 64, 0}, res)
-	assert.Equal(t, ArrayName, v.GetType())
+	assert.Equal(t, Array, v.GetType())
 }
 
 func TestCompactArray_Decode(t *testing.T) {
-	s := &CompactArray{NextList: []TypeString{Uint16Name}, Len: 2}
+	s := &CompactArray{NextList: []PrimitiveType{Uint16}, Len: 2}
 	_, err := s.Decode([]byte{1, 0, 64, 0})
 	if err != nil {
 		t.Error(err)

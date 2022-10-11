@@ -24,8 +24,8 @@ func (c *CompactBool) Decode(val []byte) (int, error) {
 	return 1, nil
 }
 
-func (c *CompactBool) GetType() TypeString {
-	return BoolName
+func (c *CompactBool) GetType() PrimitiveType {
+	return Bool
 }
 
 func (c *CompactBool) CloneNew() Compact {

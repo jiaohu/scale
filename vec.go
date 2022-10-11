@@ -7,7 +7,7 @@ import (
 
 type CompactVec struct {
 	Val      []Compact
-	NextList []TypeString
+	NextList []PrimitiveType
 }
 
 func (c *CompactVec) Encode() ([]byte, error) {
@@ -77,12 +77,12 @@ func (c *CompactVec) GetVal() interface{} {
 	return c.Val
 }
 
-func (c *CompactVec) GetType() TypeString {
-	return VecName
+func (c *CompactVec) GetType() PrimitiveType {
+	return Vec
 }
 
 func (c *CompactVec) getNextCompact() (Compact, error) {
-	switch changeStringToType(c.NextList[0]) {
+	switch c.NextList[0] {
 	case String:
 		return &CompactString{}, nil
 	case Uint8:

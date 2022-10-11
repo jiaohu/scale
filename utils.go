@@ -33,7 +33,7 @@ func negchange(input []byte) []byte {
 	return input
 }
 
-func convertToString(param interface{}) (*CompactString, error) {
+func ConvertToString(param interface{}) (*CompactString, error) {
 	if val, ok := param.(string); ok {
 		return &CompactString{Val: val}, nil
 	} else {
@@ -41,7 +41,7 @@ func convertToString(param interface{}) (*CompactString, error) {
 	}
 }
 
-func convertToUint8(param interface{}) (*FixU8, error) {
+func ConvertToUint8(param interface{}) (*FixU8, error) {
 	if val, ok := param.(uint8); ok {
 		return &FixU8{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -61,7 +61,7 @@ func convertToUint8(param interface{}) (*FixU8, error) {
 	}
 }
 
-func convertToInt8(param interface{}) (*FixI8, error) {
+func ConvertToInt8(param interface{}) (*FixI8, error) {
 	if val, ok := param.(int8); ok {
 		return &FixI8{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -81,7 +81,7 @@ func convertToInt8(param interface{}) (*FixI8, error) {
 	}
 }
 
-func convertToCompactU8(param interface{}) (*CompactU8, error) {
+func ConvertToCompactU8(param interface{}) (*CompactU8, error) {
 	if val, ok := param.(uint8); ok {
 		return &CompactU8{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -101,7 +101,7 @@ func convertToCompactU8(param interface{}) (*CompactU8, error) {
 	}
 }
 
-func convertToUint16(param interface{}) (*FixU16, error) {
+func ConvertToUint16(param interface{}) (*FixU16, error) {
 	if val, ok := param.(uint16); ok {
 		return &FixU16{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -121,7 +121,7 @@ func convertToUint16(param interface{}) (*FixU16, error) {
 	}
 }
 
-func convertToInt16(param interface{}) (*FixI16, error) {
+func ConvertToInt16(param interface{}) (*FixI16, error) {
 	if val, ok := param.(int16); ok {
 		return &FixI16{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -141,7 +141,7 @@ func convertToInt16(param interface{}) (*FixI16, error) {
 	}
 }
 
-func convertToCompactU16(param interface{}) (*CompactU16, error) {
+func ConvertToCompactU16(param interface{}) (*CompactU16, error) {
 	if val, ok := param.(uint16); ok {
 		return &CompactU16{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -161,7 +161,7 @@ func convertToCompactU16(param interface{}) (*CompactU16, error) {
 	}
 }
 
-func convertToUint32(param interface{}) (*FixU32, error) {
+func ConvertToUint32(param interface{}) (*FixU32, error) {
 	if val, ok := param.(uint32); ok {
 		return &FixU32{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -181,7 +181,7 @@ func convertToUint32(param interface{}) (*FixU32, error) {
 	}
 }
 
-func convertToInt32(param interface{}) (*FixI32, error) {
+func ConvertToInt32(param interface{}) (*FixI32, error) {
 	if val, ok := param.(int32); ok {
 		return &FixI32{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -201,7 +201,7 @@ func convertToInt32(param interface{}) (*FixI32, error) {
 	}
 }
 
-func convertToCompactU32(param interface{}) (*CompactU32, error) {
+func ConvertToCompactU32(param interface{}) (*CompactU32, error) {
 	if val, ok := param.(uint32); ok {
 		return &CompactU32{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -221,7 +221,7 @@ func convertToCompactU32(param interface{}) (*CompactU32, error) {
 	}
 }
 
-func convertToUint64(param interface{}) (*FixU64, error) {
+func ConvertToUint64(param interface{}) (*FixU64, error) {
 	if val, ok := param.(uint64); ok {
 		return &FixU64{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -241,7 +241,7 @@ func convertToUint64(param interface{}) (*FixU64, error) {
 	}
 }
 
-func convertToInt64(param interface{}) (*FixI64, error) {
+func ConvertToInt64(param interface{}) (*FixI64, error) {
 	if val, ok := param.(int64); ok {
 		return &FixI64{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -261,7 +261,7 @@ func convertToInt64(param interface{}) (*FixI64, error) {
 	}
 }
 
-func convertToCompactU64(param interface{}) (*CompactU64, error) {
+func ConvertToCompactU64(param interface{}) (*CompactU64, error) {
 	if val, ok := param.(uint64); ok {
 		return &CompactU64{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -281,7 +281,7 @@ func convertToCompactU64(param interface{}) (*CompactU64, error) {
 	}
 }
 
-func convertToInt128(param interface{}) (*FixI128, error) {
+func ConvertToInt128(param interface{}) (*FixI128, error) {
 	if val, ok := param.(*big.Int); ok {
 		return &FixI128{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -300,7 +300,7 @@ func convertToInt128(param interface{}) (*FixI128, error) {
 	}
 }
 
-func convertToUint128(param interface{}) (*FixU128, error) {
+func ConvertToUint128(param interface{}) (*FixU128, error) {
 	if val, ok := param.(*big.Int); ok {
 		return &FixU128{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -319,7 +319,7 @@ func convertToUint128(param interface{}) (*FixU128, error) {
 	}
 }
 
-func convertToCompactU128(param interface{}) (*CompactU128, error) {
+func ConvertToCompactU128(param interface{}) (*CompactU128, error) {
 	if val, ok := param.(*big.Int); ok {
 		return &CompactU128{Val: val}, nil
 	} else if val2, ok2 := param.(string); ok2 {
@@ -338,52 +338,11 @@ func convertToCompactU128(param interface{}) (*CompactU128, error) {
 	}
 }
 
-func convertToBool(param interface{}) (*CompactBool, error) {
+func ConvertToBool(param interface{}) (*CompactBool, error) {
 	if val, ok := param.(bool); ok {
 		return &CompactBool{Val: val}, nil
 	} else {
 		return nil, errors.New("param not bool")
-	}
-}
-
-func convertPrimitive(cur string, param interface{}) (Compact, error) {
-	switch changeStringToType(TypeString(cur)) {
-	case String:
-		return convertToString(param)
-	case Uint8:
-		return convertToUint8(param)
-	case Int8:
-		return convertToInt8(param)
-	case CompactUInt8:
-		return convertToCompactU8(param)
-	case Uint16:
-		return convertToUint16(param)
-	case Int16:
-		return convertToInt16(param)
-	case CompactUint16:
-		return convertToCompactU16(param)
-	case Uint32:
-		return convertToUint32(param)
-	case Int32:
-		return convertToInt32(param)
-	case CompactUint32:
-		return convertToCompactU32(param)
-	case Uint64:
-		return convertToUint64(param)
-	case Int64:
-		return convertToInt64(param)
-	case CompactUint64:
-		return convertToCompactU64(param)
-	case BigInt:
-		return convertToInt128(param)
-	case BigUint:
-		return convertToUint128(param)
-	case CompactBigInt:
-		return convertToCompactU128(param)
-	case Bool:
-		return convertToBool(param)
-	default:
-		return nil, errors.New("unsupported type")
 	}
 }
 
@@ -399,115 +358,10 @@ func getCompactIntEncodeMode(a int) int {
 	}
 }
 
-func formatTypeString(tyName TypeString) TypeString {
-	switch strings.ToLower(tyName.String()) {
-	case "string", "str":
-		return StringName
-	case "struct":
-		return StructName
-	case "u8":
-		return Uint8Name
-	case "i8":
-		return Int8Name
-	case "compact < u8 >":
-		return CompactUInt8Name
-	case "u16":
-		return Uint16Name
-	case "i16":
-		return Int16Name
-	case "compact < u16 >":
-		return CompactUint16Name
-	case "u32":
-		return Uint32Name
-	case "i32":
-		return Int32Name
-	case "compact < u32 >":
-		return CompactUint32Name
-	case "u64":
-		return Uint64Name
-	case "i64":
-		return Int64Name
-	case "compact < u64 >":
-		return CompactUint64Name
-	case "u128":
-		return BigUIntName
-	case "i128":
-		return BigIntName
-	case "compact < u128 >":
-		return CompactBigIntName
-	case "bool":
-		return BoolName
-	case "vec":
-		return VecName
-	case "primitive":
-		return PrimitiveName
-	case "array":
-		return ArrayName
-	case "enum":
-		return EnumName
-	case "tuple":
-		return TupleName
-	default:
-		return NoneName
-	}
-}
-
-func changeStringToType(tyName TypeString) PrimitiveType {
-	switch strings.ToLower(tyName.String()) {
-	case "string", "str":
-		return String
-	case "struct":
-		return Struct
-	case "u8":
-		return Uint8
-	case "i8":
-		return Int8
-	case "compact < u8 >":
-		return CompactUInt8
-	case "u16":
-		return Uint16
-	case "i16":
-		return Int16
-	case "compact < u16 >":
-		return CompactUint16
-	case "u32":
-		return Uint32
-	case "i32":
-		return Int32
-	case "compact < u32 >":
-		return CompactUint32
-	case "u64":
-		return Uint64
-	case "i64":
-		return Int64
-	case "compact < u64 >":
-		return CompactUint64
-	case "u128":
-		return BigUint
-	case "i128":
-		return BigInt
-	case "compact < u128 >":
-		return CompactBigInt
-	case "bool":
-		return Bool
-	case "vec":
-		return Vec
-	case "primitive":
-		return Primitive
-	case "array":
-		return Array
-	case "enum":
-		return Enum
-	case "tuple":
-		return Tuple
-	default:
-		return None
-	}
-}
-
+// GetCompactValue get Compact's real value
 func GetCompactValue(val Compact) interface{} {
 	switch val.GetType() {
-	case ArrayName, VecName, StructName, TupleName:
+	case Array, Vec, Struct, Tuple:
 		var values []interface{}
 		for _, v1 := range val.GetVal().([]Compact) {
 			values = append(values, GetCompactValue(v1))

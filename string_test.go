@@ -33,7 +33,7 @@ func TestCompactString_Decode(t *testing.T) {
 	fmt.Println(s.Val)
 
 	s1 := &CompactVec{
-		NextList: []TypeString{StringName},
+		NextList: []PrimitiveType{String},
 	}
 	s1.Decode(Hex2Bytes("0x207365745f686173680c6b657914776f726c64"))
 	fmt.Println(s1.Val)

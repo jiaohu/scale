@@ -18,7 +18,7 @@ func TestBool(t *testing.T) {
 		res2, err := b.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{0}, res2)
-		assert.Equal(t, BoolName, a.GetType())
+		assert.Equal(t, Bool, a.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		a := CompactBool{}

@@ -41,8 +41,8 @@ func (c *CompactStruct) GetVal() interface{} {
 	return c.Val
 }
 
-func (c *CompactStruct) GetType() TypeString {
-	return StructName
+func (c *CompactStruct) GetType() PrimitiveType {
+	return Struct
 }
 
 func (c *CompactStruct) CloneNew() Compact {

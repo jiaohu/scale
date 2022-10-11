@@ -12,7 +12,7 @@ func TestFixU8(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{25}, res)
-		assert.Equal(t, Uint8Name, c.GetType())
+		assert.Equal(t, Uint8, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixU8{}
@@ -29,7 +29,7 @@ func TestFixI8(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{255}, res)
-		assert.Equal(t, Int8Name, c.GetType())
+		assert.Equal(t, Int8, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixI8{}
@@ -46,7 +46,7 @@ func TestFixU16(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{25, 0}, res)
-		assert.Equal(t, Uint16Name, c.GetType())
+		assert.Equal(t, Uint16, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixU16{}
@@ -63,7 +63,7 @@ func TestFixI16(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{255, 255}, res)
-		assert.Equal(t, Int16Name, c.GetType())
+		assert.Equal(t, Int16, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixI16{}
@@ -80,7 +80,7 @@ func TestFixU32(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{25, 0, 0, 0}, res)
-		assert.Equal(t, Uint32Name, c.GetType())
+		assert.Equal(t, Uint32, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixU32{}
@@ -97,7 +97,7 @@ func TestFixI32(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{255, 255, 255, 255}, res)
-		assert.Equal(t, Int32Name, c.GetType())
+		assert.Equal(t, Int32, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixI32{}
@@ -114,7 +114,7 @@ func TestFixU64(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{25, 0, 0, 0, 0, 0, 0, 0}, res)
-		assert.Equal(t, Uint64Name, c.GetType())
+		assert.Equal(t, Uint64, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixU64{}
@@ -131,7 +131,7 @@ func TestFixI64(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{255, 255, 255, 255, 255, 255, 255, 255}, res)
-		assert.Equal(t, Int64Name, c.GetType())
+		assert.Equal(t, Int64, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixI64{}
@@ -148,7 +148,7 @@ func TestFixU128(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, res)
-		assert.Equal(t, BigUIntName, c.GetType())
+		assert.Equal(t, BigUint, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixU128{}
@@ -165,7 +165,7 @@ func TestFixI128(t *testing.T) {
 		res, err := c.Encode()
 		assert.Nil(t, err)
 		assert.Equal(t, []byte{255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255}, res)
-		assert.Equal(t, BigIntName, c.GetType())
+		assert.Equal(t, BigInt, c.GetType())
 	})
 	t.Run("decode", func(t *testing.T) {
 		c := FixI128{}

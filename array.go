@@ -8,7 +8,7 @@ import (
 type CompactArray struct {
 	Val      []Compact
 	Len      int
-	NextList []TypeString
+	NextList []PrimitiveType
 }
 
 func (c *CompactArray) Encode() ([]byte, error) {
@@ -58,12 +58,12 @@ func (c *CompactArray) GetVal() interface{} {
 	return c.Val
 }
 
-func (c *CompactArray) GetType() TypeString {
-	return ArrayName
+func (c *CompactArray) GetType() PrimitiveType {
+	return Array
 }
 
 func (c *CompactArray) getNextCompact(i int) (Compact, error) {
-	switch changeStringToType(c.NextList[0]) {
+	switch c.NextList[0] {
 	case String:
 		return &CompactString{}, nil
 	case Uint8:

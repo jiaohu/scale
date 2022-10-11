@@ -63,8 +63,8 @@ func (c *CompactString) Decode(value []byte) (int, error) {
 	return offset + int(ss.Val.Uint64()), nil
 }
 
-func (c *CompactString) GetType() TypeString {
-	return StringName
+func (c *CompactString) GetType() PrimitiveType {
+	return String
 }
 
 func (c *CompactString) CloneNew() Compact {

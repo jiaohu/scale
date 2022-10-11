@@ -39,8 +39,8 @@ func (c *CompactTuple) GetVal() interface{} {
 	return c.Val
 }
 
-func (c *CompactTuple) GetType() TypeString {
-	return TupleName
+func (c *CompactTuple) GetType() PrimitiveType {
+	return Tuple
 }
 
 func (c *CompactTuple) CloneNew() Compact {

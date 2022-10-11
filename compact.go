@@ -8,13 +8,13 @@ import (
 )
 
 // Compact base interface for encoding and decoding. We redefine
-// the way to encode and decode all the types in abi file.
+// the way to encode and decode all the types that supported by us.
 // For more details see [SCALE Codec](https://docs.substrate.io/v3/advanced/scale-codec/)
 type Compact interface {
 	Encode() ([]byte, error)
 	Decode(val []byte) (int, error)
 	GetVal() interface{}
-	GetType() TypeString
+	GetType() PrimitiveType
 	CloneNew() Compact
 }
 
@@ -57,8 +57,8 @@ func (c *CompactU8) GetVal() interface{} {
 	return c.Val
 }
 
-func (c *CompactU8) GetType() TypeString {
-	return CompactUInt8Name
+func (c *CompactU8) GetType() PrimitiveType {
+	return CompactUInt8
 }
 
 func (c *CompactU8) CloneNew() Compact {
@@ -112,8 +112,8 @@ func (u *CompactU16) Decode(val []byte) (int, error) {
 	}
 }
 
-func (u *CompactU16) GetType() TypeString {
-	return CompactUint16Name
+func (u *CompactU16) GetType() PrimitiveType {
+	return CompactUint16
 }
 
 func (u *CompactU16) CloneNew() Compact {
@@ -178,8 +178,8 @@ func (u *CompactU32) Decode(val []byte) (int, error) {
 	return 0, nil
 }
 
-func (u *CompactU32) GetType() TypeString {
-	return CompactUint32Name
+func (u *CompactU32) GetType() PrimitiveType {
+	return CompactUint32
 }
 
 func (u *CompactU32) CloneNew() Compact {
@@ -278,8 +278,8 @@ func (c *CompactU64) Decode(val []byte) (int, error) {
 	return 0, nil
 }
 
-func (c *CompactU64) GetType() TypeString {
-	return CompactUint64Name
+func (c *CompactU64) GetType() PrimitiveType {
+	return CompactUint64
 }
 
 func (c *CompactU64) CloneNew() Compact {
@@ -294,8 +294,8 @@ func (c *CompactU128) GetVal() interface{} {
 	return c.Val
 }
 
-func (c *CompactU128) GetType() TypeString {
-	return CompactBigIntName
+func (c *CompactU128) GetType() PrimitiveType {
+	return CompactBigInt
 }
 
 func (c *CompactU128) Encode() ([]byte, error) {

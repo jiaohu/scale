@@ -24,8 +24,8 @@ func (f *FixU8) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixU8) GetType() TypeString {
-	return Uint8Name
+func (f *FixU8) GetType() PrimitiveType {
+	return Uint8
 }
 
 func (f *FixU8) CloneNew() Compact {
@@ -49,8 +49,8 @@ func (f *FixI8) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixI8) GetType() TypeString {
-	return Int8Name
+func (f *FixI8) GetType() PrimitiveType {
+	return Int8
 }
 
 func (f *FixI8) CloneNew() Compact {
@@ -74,8 +74,8 @@ func (f *FixU16) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixU16) GetType() TypeString {
-	return Uint16Name
+func (f *FixU16) GetType() PrimitiveType {
+	return Uint16
 }
 
 func (f *FixU16) CloneNew() Compact {
@@ -99,8 +99,8 @@ func (f *FixI16) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixI16) GetType() TypeString {
-	return Int16Name
+func (f *FixI16) GetType() PrimitiveType {
+	return Int16
 }
 
 func (f *FixI16) CloneNew() Compact {
@@ -124,8 +124,8 @@ func (f *FixU32) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixU32) GetType() TypeString {
-	return Uint32Name
+func (f *FixU32) GetType() PrimitiveType {
+	return Uint32
 }
 
 func (f *FixU32) CloneNew() Compact {
@@ -149,8 +149,8 @@ func (f *FixI32) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixI32) GetType() TypeString {
-	return Int32Name
+func (f *FixI32) GetType() PrimitiveType {
+	return Int32
 }
 
 func (f *FixI32) CloneNew() Compact {
@@ -183,8 +183,8 @@ func (f *FixU64) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixU64) GetType() TypeString {
-	return Uint64Name
+func (f *FixU64) GetType() PrimitiveType {
+	return Uint64
 }
 
 func (f *FixU64) CloneNew() Compact {
@@ -217,8 +217,8 @@ func (f *FixI64) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixI64) GetType() TypeString {
-	return Int64Name
+func (f *FixI64) GetType() PrimitiveType {
+	return Int64
 }
 
 func (f *FixI64) CloneNew() Compact {
@@ -259,8 +259,8 @@ func (f *FixU128) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixU128) GetType() TypeString {
-	return BigUIntName
+func (f *FixU128) GetType() PrimitiveType {
+	return BigUint
 }
 
 func (f *FixU128) CloneNew() Compact {
@@ -318,8 +318,8 @@ func (f *FixI128) GetVal() interface{} {
 	return f.Val
 }
 
-func (f *FixI128) GetType() TypeString {
-	return BigIntName
+func (f *FixI128) GetType() PrimitiveType {
+	return BigInt
 }
 
 func (f *FixI128) CloneNew() Compact {
