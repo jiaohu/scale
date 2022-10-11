@@ -4,12 +4,12 @@ import "bytes"
 
 type CompactEnum struct {
 	Val   Compact
-	index byte
+	Index byte
 }
 
 func (c *CompactEnum) Encode() ([]byte, error) {
 	var buf bytes.Buffer
-	buf.WriteByte(c.index)
+	buf.WriteByte(c.Index)
 	if c.Val == nil {
 		return buf.Bytes(), nil
 	}
@@ -26,7 +26,7 @@ func (c *CompactEnum) Decode(value []byte) (int, error) {
 	if len(value) == 0 {
 		return 0, nil
 	}
-	c.index = value[0]
+	c.Index = value[0]
 	offset += 1
 	value = value[1:]
 	if c.Val == nil {
@@ -55,6 +55,6 @@ func (c *CompactEnum) GetType() PrimitiveType {
 func (c *CompactEnum) CloneNew() Compact {
 	temp := &CompactEnum{}
 	temp.Val = c.Val.CloneNew()
-	temp.index = c.index
+	temp.Index = c.Index
 	return temp
 }

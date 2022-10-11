@@ -75,7 +75,7 @@ s.Decode(Hex2Bytes("0x207365745f686173680c6b657914776f726c64"))
 ```
 
 + ##### Vec
-
+in this type, we include ```NextList``` to define which type of value in the vector, we will also check the type while encode or decode. 
 ```go
 // encode
 v := &CompactVec{Val: []Compact{&FixU16{
@@ -91,6 +91,8 @@ _, err := s.Decode([]byte{8, 1, 0, 64, 0})
 ```
 
 + ##### Array
+
+array is same to vector, but we add a attribute named ```Len``` to limit the number of value.
 ```go
 // encode
 v := &CompactArray{Val: []Compact{&FixU16{
@@ -106,14 +108,21 @@ _, err := s.Decode([]byte{1, 0, 64, 0})
 ```
 
 + ##### Enum
-
+things to enum will be a little different. We do not encode or decode all types in the enum, but only choose one of it to operator. the attribute named ```Index``` tell us which element will be use.
 ```go
+// for there is not enum type in golang, use rust for example
+//  enum Demo {
+//     First(i32),
+//     Second(i64),
+//  }
+//
+
 // encode
-a := CompactEnum{Val: &FixU8{Val: 42}, index: 0}
+a := CompactEnum{Val: &FixU8{Val: 42}, Index: 0}
 ans, err := a.Encode()
 
 //decode
-a := CompactEnum{Val: &FixU8{}, index: 0}
+a := CompactEnum{Val: &FixU8{}, Index: 0}
 ans, err := a.Decode([]byte{0, 42})
 ```
 

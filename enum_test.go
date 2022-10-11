@@ -7,7 +7,7 @@ import (
 
 func TestEnum(t *testing.T) {
 	t.Run("encode", func(t *testing.T) {
-		a := CompactEnum{Val: &FixU8{Val: 42}, index: 0}
+		a := CompactEnum{Val: &FixU8{Val: 42}, Index: 0}
 		ans, err := a.Encode()
 		if err != nil {
 			t.Error(err)
@@ -16,7 +16,7 @@ func TestEnum(t *testing.T) {
 	})
 
 	t.Run("decode", func(t *testing.T) {
-		a := CompactEnum{Val: &FixU8{}, index: 0}
+		a := CompactEnum{Val: &FixU8{}, Index: 0}
 		ans, err := a.Decode([]byte{0, 42})
 		if err != nil {
 			t.Error(err)
@@ -27,7 +27,7 @@ func TestEnum(t *testing.T) {
 
 	t.Run("decode2-optionNone", func(t *testing.T) {
 		a := CompactEnum{
-			index: 0,
+			Index: 0,
 		}
 		ans, err := a.Decode([]byte{0})
 		if err != nil {
