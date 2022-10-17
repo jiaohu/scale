@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-func reverse(input []byte) (output []byte) {
-	for i := len(input) - 1; i >= 0; i-- {
-		output = append(output, input[i])
+func reverse(input []byte) []byte {
+	for i := 0; i < len(input)/2; i++ {
+		input[i], input[len(input)-1-i] = input[len(input)-1-i], input[i]
 	}
-	return
+	return input
 }
 
 func negchange(input []byte) []byte {
