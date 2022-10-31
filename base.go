@@ -6,8 +6,7 @@ import (
 )
 
 type littleEncode struct {
-	Val  interface{}
-	Type PrimitiveType
+	Val interface{}
 }
 
 var BaseIntEncode littleEncode
